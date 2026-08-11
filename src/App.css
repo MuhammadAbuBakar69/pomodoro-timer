@@ -270,3 +270,5 @@ body {
 .pt-log-time {
   color: var(--pt-text-muted);
 }
+
+.pt-sound-toggle { margin: 0.75rem auto 0; display: block; }

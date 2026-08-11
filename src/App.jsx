@@ -12,6 +12,7 @@ export default function App() {
   const [mode, setMode] = useState('work'); // 'work', 'shortBreak', 'longBreak'
   const [timeLeft, setTimeLeft] = useState(MODES.work.duration);
   const [isRunning, setIsRunning] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(() => localStorage.getItem('pt_sound') !== 'off');
 
   // Stats
   const [completedSessions, setCompletedSessions] = useState(() => {
@@ -25,6 +26,10 @@ export default function App() {
   });
 
   const timerRef = useRef(null);
+
+  useEffect(() => {
+    localStorage.setItem('pt_sound', soundEnabled ? 'on' : 'off');
+  }, [soundEnabled]);
 
   // Persist stats
   useEffect(() => {
@@ -90,7 +95,7 @@ export default function App() {
   // Handle Session Completion
   const handleTimerComplete = () => {
     setIsRunning(false);
-    playFinishBeep();
+    if (soundEnabled) playFinishBeep();
 
     if (mode === 'work') {
       const newCount = completedSessions + 1;
@@ -248,6 +253,10 @@ export default function App() {
             ⏭️ Skip
           </button>
         </div>
+
+        <button className="pt-btn-text pt-sound-toggle" onClick={() => setSoundEnabled((enabled) => !enabled)} aria-pressed={soundEnabled}>
+          {soundEnabled ? '🔔 Sound on' : '🔕 Sound off'}
+        </button>
 
         {/* Stats Dashboard */}
         <div className="pt-stats-grid">
