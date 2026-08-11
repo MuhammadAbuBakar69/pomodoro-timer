@@ -1,0 +1,272 @@
+/* Sleek Dark UI Pomodoro Timer Styles */
+:root {
+  --pt-bg: #0f172a;
+  --pt-card-bg: #1e293b;
+  --pt-card-border: #334155;
+  --pt-text: #f8fafc;
+  --pt-text-muted: #94a3b8;
+  --pt-radius: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--pt-bg);
+  color: var(--pt-text);
+  line-height: 1.5;
+}
+
+.pt-app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.pt-container {
+  max-width: 520px;
+  width: 100%;
+  background: var(--pt-card-bg);
+  border: 1px solid var(--pt-card-border);
+  border-radius: var(--pt-radius);
+  padding: 2rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pt-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.pt-header h1 {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.pt-header p {
+  margin: 0;
+  color: var(--pt-text-muted);
+  font-size: 0.9rem;
+}
+
+/* Mode Tabs */
+.pt-mode-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: #0f172a;
+  padding: 0.35rem;
+  border-radius: 12px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.pt-mode-tabs button {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--pt-text-muted);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.6rem 0.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pt-mode-tabs button.active {
+  background: var(--pt-card-bg);
+  color: var(--theme-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Circular Timer Ring */
+.pt-timer-wrapper {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.pt-progress-ring {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.pt-ring-progress {
+  transition: stroke-dashoffset 0.5s ease, stroke 0.3s ease;
+}
+
+.pt-timer-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pt-time-display {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.pt-mode-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* Controls */
+.pt-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.pt-btn-main {
+  flex: 2;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.pt-btn-main:active {
+  transform: scale(0.98);
+}
+
+.pt-btn-sub {
+  flex: 1;
+  padding: 1rem;
+  background: #0f172a;
+  border: 1px solid var(--pt-card-border);
+  border-radius: 12px;
+  color: var(--pt-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pt-btn-sub:hover {
+  background: #1e293b;
+}
+
+/* Stats Dashboard */
+.pt-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.pt-stat-card {
+  background: #0f172a;
+  border: 1px solid var(--pt-card-border);
+  padding: 0.85rem 0.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.pt-stat-icon {
+  font-size: 1.3rem;
+}
+
+.pt-stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pt-stat-val {
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.pt-stat-lbl {
+  font-size: 0.68rem;
+  color: var(--pt-text-muted);
+  margin-top: 0.2rem;
+}
+
+/* History Log */
+.pt-history-card {
+  width: 100%;
+  background: #0f172a;
+  border: 1px solid var(--pt-card-border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.pt-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.pt-history-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.pt-btn-text {
+  background: none;
+  border: none;
+  color: var(--pt-text-muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.pt-empty-logs {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--pt-text-muted);
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.pt-log-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pt-log-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.5rem;
+  background: #1e293b;
+  border-radius: 6px;
+}
+
+.pt-log-time {
+  color: var(--pt-text-muted);
+}
